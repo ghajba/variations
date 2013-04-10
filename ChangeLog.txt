@@ -1,0 +1,8 @@
+ChangeLog
+==========
+
+2013-04-10
+-----------
+ * Added file 001_Lets_get_started.rar containig the examples to http://hahamo.wordpress.com/2013/01/12/lets-get-started/
+ * Updated README
+ * Added ChangeLog.txt
