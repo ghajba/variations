@@ -1,11 +1,16 @@
 ChangeLog
-==========
+===========
 
+2013-05-14
+-----------
+ * Added pitfall.xml to the change sets of r1.0
+
+===========
 2013-05-10
 -----------
  * Added sample database changesets to http://hahamo.wordpress.com/2013/05/10/liquibase-change-sets/
 
-==========
+===========
 2013-04-10
 -----------
  * Added file 001_Lets_get_started.rar containig the examples to http://hahamo.wordpress.com/2013/01/12/lets-get-started/
