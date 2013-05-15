@@ -1,6 +1,11 @@
 ChangeLog
 ===========
 
+2013-05-15
+-----------
+ * Added master.xml and releasechanges.xml
+
+===========
 2013-05-14
 -----------
  * Added pitfall.xml to the change sets of r1.0
