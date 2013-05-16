@@ -5,6 +5,6 @@
                       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
   
 	<include file="r1.0/ChangeLog-initial.xml" relativeToChangelogFile="true" />
-    <include file="r1.0/pitfall.xml" relativeToChangelogFile="true" />
+    <!-- <include file="r1.0/pitfall.xml" relativeToChangelogFile="true" /> -->
 
 </databaseChangeLog> 
