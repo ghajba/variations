@@ -1,6 +1,17 @@
 ChangeLog
 ===========
 
+2014-02-26
+-----------
+ * Added file 002_Running_Liquibase_with_Maven.zip containing the examples of http://hahamo.wordpress.com/2014/02/20/running-liquibase-change-sets-part-2-maven/
+ 
+===========
+2014-02-20
+-----------
+ * .gitignore for target folder and contents
+ * enabling Liquibase with maven for http://hahamo.wordpress.com/2014/02/20/running-liquibase-change-sets-part-2-maven/
+ 
+===========
 2013-05-15
 -----------
  * Added master.xml and releasechanges.xml
