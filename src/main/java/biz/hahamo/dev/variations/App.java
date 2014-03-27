@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+import biz.hahamo.dev.variations.controller.ApplicationFacade;
+
 import liquibase.Liquibase;
 import liquibase.database.core.H2Database;
 import liquibase.database.jvm.JdbcConnection;
@@ -15,11 +17,11 @@ import liquibase.resource.ClassLoaderResourceAccessor;
  */
 public class App
 {
-    private static final String url = "jdbc:h2:file:../db/testdb";
+    private static final String url = "jdbc:h2:file:../db/testdb;MVCC=TRUE";
     private static final String username = "sa";
     private static final String password = "";
     private static final String changelog = "dbchange/master.xml";
-
+    
     public static void main(String[] args)
     {
         try
@@ -40,6 +42,10 @@ public class App
             e.printStackTrace();
         }
 
-        System.out.println("Hello World!");
+        System.out.println("Loading data from the Database.");
+        ApplicationFacade facade = new ApplicationFacade();
+        facade.loadData();
+        System.out.println("Terminated");
+        
     }
 }

@@ -1,4 +1,4 @@
-package biz.hahamo.dev.variations.repository;
+package biz.hahamo.dev.variations.controller.repository;
 
 import java.io.Serializable;
 import java.util.List;
