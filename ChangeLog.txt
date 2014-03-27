@@ -1,6 +1,21 @@
 ChangeLog
 ===========
 
+2014-03-27
+-----------
+ * First version of Hibernate with Spring injection
+ 
+===========
+2014-03-25
+-----------
+ * Generic Repository as the basis for Hibernate (and other ORM and DB tools)
+  
+===========
+2014-02-28
+-----------
+ * Added Liquibase as a Java application  
+
+===========
 2014-02-26
 -----------
  * Added file 002_Running_Liquibase_with_Maven.zip containing the examples of http://hahamo.wordpress.com/2014/02/20/running-liquibase-change-sets-part-2-maven/

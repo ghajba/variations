@@ -7,12 +7,13 @@ import javax.management.Query;
 
 import org.hibernate.Hibernate;
 import org.springframework.orm.hibernate4.support.HibernateDaoSupport;
+import org.springframework.stereotype.Repository;
 
 import biz.hahamo.dev.variations.controller.repository.GenericRepository;
 
+@Repository("genericRepository")
 public class GenericHibernateRepository extends HibernateDaoSupport implements GenericRepository
 {
-
     public <T> T find(Class<T> clazz, Serializable primaryKey)
     {
         if (primaryKey == null)
@@ -30,20 +31,17 @@ public class GenericHibernateRepository extends HibernateDaoSupport implements G
 
     public void save(Object entity)
     {
-        // TODO Auto-generated method stub
-
+        getHibernateTemplate().saveOrUpdate(entity);
     }
 
     public void remove(Object entity)
     {
-        // TODO Auto-generated method stub
-
+        getHibernateTemplate().delete(entity);
     }
 
     public void attach(Object entity)
     {
-        getHibernateTemplate().saveOrUpdate(entity);
-
+        save(entity);
     }
 
     public void detach(Object entity)
@@ -58,8 +56,10 @@ public class GenericHibernateRepository extends HibernateDaoSupport implements G
 
     public <T> T findByQuery(Query query)
     {
-        // TODO Auto-generated method stub
+        org.hibernate.Query hibernateQuery;
+//        (T) hibernateQuery.uniqueResult();
         return null;
+        
     }
 
     public <T> List<T> findListByQuery(Query query)

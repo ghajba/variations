@@ -4,19 +4,22 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-import biz.hahamo.dev.variations.controller.ApplicationFacade;
-
 import liquibase.Liquibase;
 import liquibase.database.core.H2Database;
 import liquibase.database.jvm.JdbcConnection;
 import liquibase.exception.LiquibaseException;
 import liquibase.resource.ClassLoaderResourceAccessor;
 
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import biz.hahamo.dev.variations.controller.ApplicationService;
+
 /**
- * Hello world!
+ * Simple app for http://github.com/ghajba/variations
  */
 public class App
 {
+    // FIXME: add Liquibase with Spring instead of programmatic Java code
     private static final String url = "jdbc:h2:file:../db/testdb;MVCC=TRUE";
     private static final String username = "sa";
     private static final String password = "";
@@ -43,9 +46,10 @@ public class App
         }
 
         System.out.println("Loading data from the Database.");
-        ApplicationFacade facade = new ApplicationFacade();
-        facade.loadData();
+        ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
+        ApplicationService service = ctx.getBean(ApplicationService.class);
+        service.loadData();
+        ctx.close();
         System.out.println("Terminated");
-        
     }
 }

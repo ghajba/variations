@@ -11,15 +11,16 @@ import biz.hahamo.dev.variations.model.Driver;
  * @author GHajba
  *
  */
-@Service
-public class ApplicationFacade
+@Service("applicationService")
+public class ApplicationService
 {
     @Autowired
     private GenericRepository repository;
     
     public void loadData()
     {
-        repository.find(Driver.class, 1L);
+        Driver d = repository.find(Driver.class, 1L);
+        System.out.println(d);
     }
 
 }
