@@ -1,6 +1,11 @@
 ChangeLog
 ===========
 
+2014-03-29
+-----------
+ * Travis CI added for remote continuous integration platform -- and for running the unit tests with each build
+ 
+===========
 2014-03-27
 -----------
  * First version of Hibernate with Spring injection
