@@ -3,8 +3,6 @@ package biz.hahamo.dev.variations.controller.repository;
 import java.io.Serializable;
 import java.util.List;
 
-import javax.management.Query;
-
 /**
  * A simple generic repository for loading and saving the data.
  * 
@@ -62,19 +60,19 @@ public interface GenericRepository
      * @param query
      * @return
      */
-    <T> T findByQuery(Query query);
+    <T> T findByQuery(PersistenceQuery query);
 
     /**
      * @param query 
      * @return
      */
-    <T> List<T> findListByQuery(Query query);
+    <T> List<T> findListByQuery(PersistenceQuery query);
 
     /**
      * Execute operation for mass-updates or mass-deletes
      * @param query the query to execute
      * @return the size of the changed datasets
      */
-    int execute(Query query);
+    int execute(PersistenceQuery query);
 
 }

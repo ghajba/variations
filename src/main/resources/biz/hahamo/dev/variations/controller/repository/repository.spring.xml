@@ -49,11 +49,41 @@
 		p:sessionFactory-ref="sessionFactory">
 	</bean>
 
+	<bean id="biz.hahamo.dev.variations.controller.repository.internal.hibernate.HibernateQueryCreator"
+		class="biz.hahamo.dev.variations.controller.repository.internal.hibernate.HibernateQueryCreatorImpl"
+		primary="true">
+		<property name="queryCreators">
+			<map>
+				<entry
+					key="biz.hahamo.dev.variations.controller.repository.SqlPersistenceQuery">
+					<bean
+						class="biz.hahamo.dev.variations.controller.repository.internal.hibernate.SqlQueryCreator" />
+				</entry>
+				<entry
+					key="biz.hahamo.dev.variations.controller.repository.NamedPersistenceQuery">
+					<bean
+						class="biz.hahamo.dev.variations.controller.repository.internal.hibernate.NamedQueryCreator" />
+				</entry>
+				<entry
+					key="biz.hahamo.dev.variations.controller.repository.JpqlPersistenceQuery">
+					<bean
+						class="biz.hahamo.dev.variations.controller.repository.internal.hibernate.JqplQueryCreator" />
+				</entry>
+			</map>
+		</property>
+	</bean>
+
 	<bean
 		id="biz.hahamo.dev.variations.controller.repository.GenericRepository"
-		class="biz.hahamo.dev.variations.controller.repository.internal.GenericHibernateRepository"
+		class="biz.hahamo.dev.variations.controller.repository.internal.hibernate.GenericHibernateRepository"
 		depends-on="liquibase">
 		<property name="sessionFactory" ref="sessionFactory" />
+		<constructor-arg
+			ref="biz.hahamo.dev.variations.controller.repository.internal.hibernate.HibernateQueryCreator" />
 	</bean>
+
+	<bean
+		id="biz.hahamo.dev.variations.controller.repository.PersistenceQueryFactory"
+		class="biz.hahamo.dev.variations.controller.repository.internal.PersistenceQueryFactoryImpl" />
 
 </beans>

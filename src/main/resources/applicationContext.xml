@@ -14,6 +14,8 @@
     
     <import resource="classpath:biz/hahamo/dev/variations/controller/repository/repository.spring.xml"/>
     
-    <bean name="applicationService" class="biz.hahamo.dev.variations.controller.ApplicationService"/>
-    
+    <bean name="applicationService" class="biz.hahamo.dev.variations.controller.ApplicationService">
+        <constructor-arg ref="biz.hahamo.dev.variations.controller.repository.GenericRepository"/>
+        <constructor-arg ref="biz.hahamo.dev.variations.controller.repository.PersistenceQueryFactory"/>
+    </bean>    
 </beans>
