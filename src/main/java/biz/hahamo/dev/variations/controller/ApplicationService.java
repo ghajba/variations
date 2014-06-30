@@ -13,7 +13,7 @@ import biz.hahamo.dev.variations.model.Driver;
  * @author GHajba
  * 
  */
-@Transactional
+@Transactional(readOnly=true)
 public class ApplicationService {
     private final GenericRepository repository;
     private final PersistenceQueryFactory persistenceQueryFactory;
@@ -29,8 +29,8 @@ public class ApplicationService {
         repository.findListByQuery(persistenceQueryFactory.createJpqlQuery("all.drivers", "FROM Driver"));
     }
 
+    @Transactional
     public void saveData(Object entity) {
         repository.save(entity);
     }
-
 }
