@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="sequences" author="ghajba">
+        <createSequence incrementBy="1" startValue="1" sequenceName="driver_seq" />
+        <createSequence incrementBy="1" startValue="1" sequenceName="route_seq" />
+        <createSequence incrementBy="1" startValue="1" sequenceName="shipping_note_seq" />
+        <createSequence incrementBy="1" startValue="1" sequenceName="user_seq" />
+        <createSequence incrementBy="1" startValue="1" sequenceName="vehicle_seq" />
+    </changeSet>
+
+</databaseChangeLog>
