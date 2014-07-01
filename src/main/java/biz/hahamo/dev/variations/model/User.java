@@ -12,10 +12,11 @@ public class User {
     protected User() {
     }
 
-    public User(String name, String login, String password, String emailAddress) {
+    public User(String name, String login, String password, String salt, String emailAddress) {
         this.name = name;
         this.login = login;
         this.password = password;
+        this.salt = salt;
         this.emailAddress = emailAddress;
     }
 
@@ -30,9 +31,11 @@ public class User {
     @Column(name = "LOGIN", nullable = false, length = 30)
     private String login;
 
-    // FIXME enable hashed password -- currently te PW is stored as plain text
-    @Column(name = "PASSWORD", nullable = false, length = 30)
+    @Column(name = "PASSWORD", nullable = false, length = 128)
     private String password;
+
+    @Column(name = "SALT", nullable = false, length = 128)
+    private String salt;
 
     @Column(name = "E_MAIL_ADDRESS", nullable = false, length = 255)
     private String emailAddress;
@@ -67,6 +70,14 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getSalt() {
+        return salt;
+    }
+
+    public void setSalt(String salt) {
+        this.salt = salt;
     }
 
     public String getEmailAddress() {

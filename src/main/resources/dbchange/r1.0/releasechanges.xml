@@ -6,5 +6,6 @@
     <include file="ChangeLog-initial.xml" relativeToChangelogFile="true" />
     <!-- <include file="r1.0/pitfall.xml" relativeToChangelogFile="true" /> -->
     <include file="sequences.xml" relativeToChangelogFile="true" />
+    <include file="20140701-1.xml" relativeToChangelogFile="true"/>
 
 </databaseChangeLog> 
