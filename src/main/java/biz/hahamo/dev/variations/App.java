@@ -1,31 +1,44 @@
 package biz.hahamo.dev.variations;
 
-import java.text.DateFormat;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
+
+import javafx.application.Application;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import biz.hahamo.dev.variations.controller.ApplicationService;
-import biz.hahamo.dev.variations.model.Driver;
+import biz.hahamo.dev.variations.view.ViewService;
 
 /**
- * Simple app for http://github.com/ghajba/variations
+ * Simple application for http://github.com/ghajba/variations
  */
-public class App {
+public class App extends Application {
 
-    public static void main(String[] args) throws ParseException {
-        System.out.println("Loading data from the Database.");
-        ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
-        ApplicationService service = ctx.getBean(ApplicationService.class);
-        service.loadData();
+    private ClassPathXmlApplicationContext ctx;
 
-        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        Driver driver = new Driver("Gabor Hajba", "12345", "B", dateFormat.parse("2016-05-22"));
-        service.saveData(driver);
-        System.out.println(driver.getId());
+    public static void main(String... args) throws ParseException {
+        launch(args);
+    }
 
-        ctx.close();
+    @Override
+    public void start(Stage mainStage) {
+
+        System.out.println("Starting application...");
+        ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
+        final ViewService viewService = ctx.getBean(ViewService.class);
+
+        mainStage = new Stage(StageStyle.DECORATED);
+        mainStage.setTitle("Shipping Note Management Application");
+        mainStage.setResizable(false);
+        mainStage.setScene(viewService.getMainScene());
+        mainStage.show();
+    }
+
+    @Override
+    public void stop() {
+        if(ctx != null) 
+            ctx.close();
         System.out.println("Terminated");
     }
 }

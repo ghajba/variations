@@ -24,7 +24,7 @@
         <property name="hibernateProperties">
             <props>
                 <prop key="hibernate.dialect">org.hibernate.dialect.H2Dialect</prop>
-                <prop key="hibernate.show_sql">true</prop>
+                <prop key="hibernate.show_sql">false</prop>
             </props>
         </property>
     </bean>
@@ -64,5 +64,11 @@
 
     <bean id="biz.hahamo.dev.variations.controller.repository.PersistenceQueryFactory" 
         class="biz.hahamo.dev.variations.controller.repository.internal.PersistenceQueryFactoryImpl" />
+        
+    <bean id="biz.hahamo.dev.variations.controller.repository.UserRepository"
+        class="biz.hahamo.dev.variations.controller.repository.UserRepository">
+        <constructor-arg ref="biz.hahamo.dev.variations.controller.repository.GenericRepository" />
+        <constructor-arg ref="biz.hahamo.dev.variations.controller.repository.PersistenceQueryFactory" />
+     </bean>
 
 </beans>

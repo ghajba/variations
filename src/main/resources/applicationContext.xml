@@ -17,4 +17,11 @@
         <constructor-arg ref="biz.hahamo.dev.variations.controller.repository.GenericRepository" />
         <constructor-arg ref="biz.hahamo.dev.variations.controller.repository.PersistenceQueryFactory" />
     </bean>
+    <bean id="biz.hahamo.dev.variations.controller.LoginService" class="biz.hahamo.dev.variations.controller.LoginService">
+        <constructor-arg ref="biz.hahamo.dev.variations.controller.repository.UserRepository" />
+    </bean>
+    
+    <bean id="biz.hahamo.dev.variations.view.ViewService" class="biz.hahamo.dev.variations.view.ViewService">
+        <constructor-arg ref="biz.hahamo.dev.variations.controller.LoginService" />
+    </bean>
 </beans>
