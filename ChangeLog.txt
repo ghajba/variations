@@ -1,4 +1,11 @@
 ChangeLog
+
+===========
+
+2014-07-03
+-----------
+* Added history for Hibernate and Spring integration in the command-line application
+
 ===========
 
 2014-03-29
