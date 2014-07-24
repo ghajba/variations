@@ -1,7 +1,9 @@
-target/*
+target
 .classpath
 .project
-.settings/*
-test-output/*
+.settings
+test-output
 /target
 .DS_Store
+.metadata
+

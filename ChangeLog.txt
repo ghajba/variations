@@ -2,6 +2,13 @@ ChangeLog
 
 ===========
 
+2014-07-24
+-----------
+* Extracted the back-end into a submodule and created a sub-module for JavaFX
+* Added GUI with JavaFX -- currently in development
+
+===========
+
 2014-07-03
 -----------
 * Added history for Hibernate and Spring integration in the command-line application
